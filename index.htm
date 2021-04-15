@@ -1,0 +1,207 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS only -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+  </head>
+  <style>
+    .container {
+      padding: 10px;
+    }
+    /* .show {
+      width: 100em;
+    }
+    @media screen and (max-width: 1000px) {
+      .show {
+        width: 80em;
+      }
+    }
+    @media screen and (max-width: 650px) {
+      .show {
+        width: 30em;
+      }
+      .btnCreate {
+        width: 100px;
+        height: 40px;
+        font-size: 15px;
+      }
+    } */
+  </style>
+  <body>
+    <div class="container">
+      <div class="card card-body bg-light mb-3">
+        <div class="form-group row">
+          <label for="image-file" class="col-sm-2 col-form-label">File</label>
+          <div class="col-sm-10">
+            <input id="image-file" type="file" value="" />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="pin" class="col-sm-2 col-form-label">Pin</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="pin" value="" />
+          </div>
+        </div>
+        <fieldset class="form-group row">
+          <legend class="col-form-label col-sm-2 float-sm-left pt-0">
+            Bits
+          </legend>
+          <div class="col-sm-10">
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="bits"
+                id="bits1"
+                value="128"
+              />
+              <label class="form-check-label" for="bits1">128</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="bits"
+                id="bits2"
+                value="256"
+                checked
+              />
+              <label class="form-check-label" for="bits2">256</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="bits"
+                id="bits3"
+                value="512"
+              />
+              <label class="form-check-label" for="bits3">512</label>
+            </div>
+          </div>
+        </fieldset>
+        <div class="form-group row">
+          <div class="col-sm-10">
+            <button type="button" class="btn btn-primary" onclick="doit()">
+              Create
+            </button>
+          </div>
+        </div>
+        <textarea rows="10" id="show" class="form-control"></textarea>
+        <div class="form-group row" style="margin-top: 20px">
+          <label for="site" class="col-sm-2 col-form-label">Site</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="site" value="" />
+          </div>
+        </div>
+        <fieldset class="form-group row">
+          <legend class="col-form-label col-sm-2 float-sm-left pt-0">
+            Bits
+          </legend>
+          <div class="col-sm-10">
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="bits2"
+                id="bits1"
+                value="64"
+              />
+              <label class="form-check-label" for="bits1">64</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="bits2"
+                id="bits2"
+                value="128"
+              />
+              <label class="form-check-label" for="bits2">128</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="bits2"
+                id="bits3"
+                value="256"
+                checked
+              />
+              <label class="form-check-label" for="bits3">256</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="bits2"
+                id="bits4"
+                value="512"
+              />
+              <label class="form-check-label" for="bits4">512</label>
+            </div>
+          </div>
+        </fieldset>
+        <div class="form-group row">
+          <div class="col-sm-10">
+            <button type="button" class="btn btn-primary" onclick="dosite()">
+              Create
+            </button>
+          </div>
+        </div>
+        <textarea rows="10" id="show2" class="form-control"></textarea>
+      </div>
+
+      <!-- File:<input id="image-file" type="file" value="" />
+      <br />
+      Pin: <input type="text" id="pin" value="" />
+      <br />
+      Bits:
+      <input type="radio" id="bits" name="bits" value="128" />128
+      <input type="radio" id="bits" name="bits" value="256" checked />256
+      <input type="radio" id="bits" name="bits" value="512" />512
+      <br />
+      <input type="button" value="Create" class="btnCreate" onclick="doit()" />
+      <br />
+      <textarea rows="10" id="show" class="show"></textarea>
+      <br />
+      Site: <input type="text" id="site" value="" />
+      <br />
+      Bits:
+      <input type="radio" id="bits2" name="bits2" value="64" />64
+      <input type="radio" id="bits2" name="bits2" value="128" />128
+      <input type="radio" id="bits2" name="bits2" value="256" checked />256
+      <input type="radio" id="bits2" name="bits2" value="512" />512
+      <br />
+      <input
+        type="button"
+        value="Create"
+        class="btnCreate"
+        onclick="dosite()"
+      />
+      <br />
+      <textarea rows="10" id="show2" class="show"></textarea> -->
+
+      <script src="bundle.js"></script>
+      <script
+        src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"
+      ></script>
+      <p>
+        Inspired by
+        <a href="https://www.xkcd.com/936/" target="_blank">XKCD 936</a>.
+      </p>
+    </div>
+  </body>
+</html>
